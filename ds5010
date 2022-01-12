@@ -1,0 +1,29 @@
+# Q1. CSV file to Dict
+import csv
+
+raw_data = open("https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins_raw.csv", "r")
+to_dict = csv.Dictreader(raw_data)
+
+for i in to_dict:
+    for a, b in i.items():
+        print(a, b)
+    print("--------------------")
+
+# Read CSV file
+import pandas as pd 
+data_raw = pd.read_csv("https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins_raw.csv", header=0)
+p_data = pd.DataFrame(data_raw)
+
+# Q2. Matplotlib 
+from matplotlib import pyplot as plt 
+import numpy as np
+import seaborn as sns
+
+jointplot(x="bill_length_mm", y="bill_depth_mm", data=p_data, kind="scatter", hue="species", markers=["o","s","D"])
+plt.suptitle("Penguin")
+plt.show()
+
+# Q4 
+iris = sns.load_datset("iris")
+sns.jointplot(x="sepal_length", y="sepal_width", data=iris, hue="class", marker=["o","D"])
+plt.show()
